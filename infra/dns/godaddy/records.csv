@@ -1,0 +1,20 @@
+Type,Name,Value,TTL,Priority,Note
+TXT,@,v=spf1 include:zoho.com ~all,3600,,SPF for Zoho Mail (root domain). Merge later if adding other senders.
+TXT,_dmarc,v=DMARC1; p=none; rua=mailto:dmarc@impulsemediagroup.com; ruf=mailto:dmarc@impulsemediagroup.com; fo=1; adkim=s; aspf=s; pct=100,3600,,DMARC baseline (monitor). Tighten to quarantine/reject after warmup stability.
+MX,@,mx.zoho.com,3600,10,Zoho Mail MX (root domain).
+MX,@,mx2.zoho.com,3600,20,Zoho Mail MX (root domain).
+MX,@,mx3.zoho.com,3600,50,Zoho Mail MX (root domain).
+MX,outreach,mx.zoho.com,3600,10,Zoho Mail MX for outreach.impulsemediagroup.com (required if using mailboxes on this subdomain).
+MX,outreach,mx2.zoho.com,3600,20,Zoho Mail MX for outreach.impulsemediagroup.com (required if using mailboxes on this subdomain).
+MX,outreach,mx3.zoho.com,3600,50,Zoho Mail MX for outreach.impulsemediagroup.com (required if using mailboxes on this subdomain).
+TXT,outreach,v=spf1 include:zoho.com ~all,3600,,SPF for outreach.impulsemediagroup.com (explicit).
+MX,intelligence,mx.zoho.com,3600,10,Zoho Mail MX for intelligence.impulsemediagroup.com (required if using mailboxes on this subdomain).
+MX,intelligence,mx2.zoho.com,3600,20,Zoho Mail MX for intelligence.impulsemediagroup.com (required if using mailboxes on this subdomain).
+MX,intelligence,mx3.zoho.com,3600,50,Zoho Mail MX for intelligence.impulsemediagroup.com (required if using mailboxes on this subdomain).
+TXT,intelligence,v=spf1 include:zoho.com ~all,3600,,SPF for intelligence.impulsemediagroup.com (explicit).
+MX,connect,mx.zoho.com,3600,10,Zoho Mail MX for connect.impulsemediagroup.com (required if using mailboxes on this subdomain).
+MX,connect,mx2.zoho.com,3600,20,Zoho Mail MX for connect.impulsemediagroup.com (required if using mailboxes on this subdomain).
+MX,connect,mx3.zoho.com,3600,50,Zoho Mail MX for connect.impulsemediagroup.com (required if using mailboxes on this subdomain).
+TXT,connect,v=spf1 include:zoho.com ~all,3600,,SPF for connect.impulsemediagroup.com (explicit).
+TXT,@,zoho-verification=zb83920123.zmverify.zoho.com,3600,,Zoho domain verification TXT value (PASTE actual value into infra/dns/godaddy/ZOHO_VALUES.env then render).
+TXT,zmail._domainkey,v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDmU3wOKTPtESS8bHU0MtwfxzYXENsZEymVy3xdZRl+RdOgl6rWYTNWIWu3rCiqJHRhaRvsLX38jWnO1rf0coQnJSuLfj5Zt0PkqLcgxZzbnSLfOpVke6VkTb+wQ/bauE+Xz8oT0aNpm6fiJOaU1h0xcuIZMsj0XMDDPAIEZ4DVNwIDAQAB,3600,,Zoho DKIM TXT record. Replace selector + value using ZOHO_VALUES.env then render.

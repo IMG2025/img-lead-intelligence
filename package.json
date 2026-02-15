@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "legal:ingest": "node scripts/run_legal_firm_ingest_v1.mjs",
+    "legal:exposure": "node scripts/run_legal_exposure_deepener_v1.mjs",
+    "legal:dossiers": "node scripts/run_legal_dossier_builder_v1.mjs",
+    "legal:phase09": "npm run legal:ingest && npm run legal:exposure && npm run legal:dossiers"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
     "@types/node": "^25.2.3",
     "dotenv": "^17.3.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "cheerio": "^1.0.0-rc.12"
   }
 }

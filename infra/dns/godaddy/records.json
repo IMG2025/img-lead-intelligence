@@ -1,0 +1,147 @@
+[
+  {
+    "type": "TXT",
+    "name": "@",
+    "value": "v=spf1 include:zoho.com ~all",
+    "ttl": 3600,
+    "note": "SPF for Zoho Mail (root domain). Merge later if adding other senders."
+  },
+  {
+    "type": "TXT",
+    "name": "_dmarc",
+    "value": "v=DMARC1; p=none; rua=mailto:dmarc@impulsemediagroup.com; ruf=mailto:dmarc@impulsemediagroup.com; fo=1; adkim=s; aspf=s; pct=100",
+    "ttl": 3600,
+    "note": "DMARC baseline (monitor). Tighten to quarantine/reject after warmup stability."
+  },
+  {
+    "type": "MX",
+    "name": "@",
+    "value": "mx.zoho.com",
+    "priority": 10,
+    "ttl": 3600,
+    "note": "Zoho Mail MX (root domain)."
+  },
+  {
+    "type": "MX",
+    "name": "@",
+    "value": "mx2.zoho.com",
+    "priority": 20,
+    "ttl": 3600,
+    "note": "Zoho Mail MX (root domain)."
+  },
+  {
+    "type": "MX",
+    "name": "@",
+    "value": "mx3.zoho.com",
+    "priority": 50,
+    "ttl": 3600,
+    "note": "Zoho Mail MX (root domain)."
+  },
+  {
+    "type": "MX",
+    "name": "outreach",
+    "value": "mx.zoho.com",
+    "priority": 10,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for outreach.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "MX",
+    "name": "outreach",
+    "value": "mx2.zoho.com",
+    "priority": 20,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for outreach.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "MX",
+    "name": "outreach",
+    "value": "mx3.zoho.com",
+    "priority": 50,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for outreach.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "TXT",
+    "name": "outreach",
+    "value": "v=spf1 include:zoho.com ~all",
+    "ttl": 3600,
+    "note": "SPF for outreach.impulsemediagroup.com (explicit)."
+  },
+  {
+    "type": "MX",
+    "name": "intelligence",
+    "value": "mx.zoho.com",
+    "priority": 10,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for intelligence.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "MX",
+    "name": "intelligence",
+    "value": "mx2.zoho.com",
+    "priority": 20,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for intelligence.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "MX",
+    "name": "intelligence",
+    "value": "mx3.zoho.com",
+    "priority": 50,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for intelligence.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "TXT",
+    "name": "intelligence",
+    "value": "v=spf1 include:zoho.com ~all",
+    "ttl": 3600,
+    "note": "SPF for intelligence.impulsemediagroup.com (explicit)."
+  },
+  {
+    "type": "MX",
+    "name": "connect",
+    "value": "mx.zoho.com",
+    "priority": 10,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for connect.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "MX",
+    "name": "connect",
+    "value": "mx2.zoho.com",
+    "priority": 20,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for connect.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "MX",
+    "name": "connect",
+    "value": "mx3.zoho.com",
+    "priority": 50,
+    "ttl": 3600,
+    "note": "Zoho Mail MX for connect.impulsemediagroup.com (required if using mailboxes on this subdomain)."
+  },
+  {
+    "type": "TXT",
+    "name": "connect",
+    "value": "v=spf1 include:zoho.com ~all",
+    "ttl": 3600,
+    "note": "SPF for connect.impulsemediagroup.com (explicit)."
+  },
+  {
+    "type": "TXT",
+    "name": "@",
+    "value": "zoho-verification=zb83920123.zmverify.zoho.com",
+    "ttl": 3600,
+    "note": "Zoho domain verification TXT value (PASTE actual value into infra/dns/godaddy/ZOHO_VALUES.env then render)."
+  },
+  {
+    "type": "TXT",
+    "name": "zmail._domainkey",
+    "value": "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDmU3wOKTPtESS8bHU0MtwfxzYXENsZEymVy3xdZRl+RdOgl6rWYTNWIWu3rCiqJHRhaRvsLX38jWnO1rf0coQnJSuLfj5Zt0PkqLcgxZzbnSLfOpVke6VkTb+wQ/bauE+Xz8oT0aNpm6fiJOaU1h0xcuIZMsj0XMDDPAIEZ4DVNwIDAQAB",
+    "ttl": 3600,
+    "note": "Zoho DKIM TXT record. Replace selector + value using ZOHO_VALUES.env then render."
+  }
+]
